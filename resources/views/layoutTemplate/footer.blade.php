@@ -89,6 +89,7 @@
 
 <!-- end info section -->
 
+{{-- <script src="{{ asset('/js/custom.js') }}"></script> --}}
 <script src="js/jquery-3.4.1.min.js"></script>
 
 <!-- jQuery (required for Toastr) -->
@@ -96,6 +97,7 @@
 
 <!-- Toastr -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 
 <script>
     @if(Session::has('toastr'))

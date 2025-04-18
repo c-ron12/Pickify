@@ -33,6 +33,7 @@
 
     <!--Toastr Link, you should also add script tag in the footer-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 </head>
 
 <body>
@@ -108,6 +109,11 @@
                             style="background: #dfd696; color: black;">Logout</button>
                     </form>
                 </div>
+
+                <div class="hamburger-and-login">
+                    <i class=" mobile-nav-toggle fa-solid fa-bars"></i>
+                </div>
+
                 @else
 
                 <div class="hamburger-and-login">
@@ -132,4 +138,15 @@
             </div>
         </nav>
     </header>
-    <!-- end header section -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const toggleButton = document.querySelector('.mobile-nav-toggle');
+        const navMenu = document.querySelector('.navbar-nav');
+        const searchBar = document.querySelector('#searchBar');
+
+        toggleButton.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+         });
+        });
+    </script>
