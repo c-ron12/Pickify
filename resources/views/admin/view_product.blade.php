@@ -43,7 +43,10 @@
 
                 <div class="search-area mx-auto w-100 mt-3" style="max-width: 650px;">
                     <form action="{{ url('admin/search_product') }}" method="GET" class="d-flex">
-                        <input type="text" name="search" class="form-control mr-3" placeholder="Search Product">
+                        <input type="text" name="search" class="form-control mr-3" id="searchInput" placeholder="Search Product"
+                            value="{{ request('search') }}">
+                        <span id="clearBtn" style="cursor:pointer; display:none; position: relative; top: 8px;
+                        right: 48px; color: white;">&times;</span>
                         <button type="submit" class="btn btn-primary">Search</button>
                     </form>
                 </div>
@@ -138,6 +141,29 @@
         toastr.success("{{ Session::get('toastr') }}");
         @endif
     </script>
+
+    <script>
+    const searchInput = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearBtn');
+
+    function toggleClearButton() {
+        clearBtn.style.display = searchInput.value ? 'inline' : 'none';
+    }
+
+    // When input changes
+    searchInput.addEventListener('input', toggleClearButton);
+
+    // On load (after page reload)
+    window.addEventListener('DOMContentLoaded', toggleClearButton);
+
+    // Clear input when '×' is clicked
+    clearBtn.addEventListener('click', function () {
+        searchInput.value = '';
+        toggleClearButton();
+        searchInput.focus();
+    });
+    </script>
+
 </body>
 
 </html>

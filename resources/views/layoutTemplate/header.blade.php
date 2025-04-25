@@ -73,7 +73,9 @@
                     <li class="nav-item" id="mobile-search-bar">
                         <div id="searchBar">
                             <form action="{{ url('search_product') }}" method="GET" style="margin-bottom: -1px;">
-                                <input type="search" name="search" placeholder="Search your items">
+                                <input type="search" name="search" id= "searchInput" placeholder="Search your items"
+                                    value="{{ request('search') }}">
+                                <span id="clearBtn" class="clearBtn">&times;</span>
                                 <button id="btn" class="search_button" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
@@ -149,4 +151,22 @@
         navMenu.classList.toggle('show');
          });
         });
+    </script>
+
+    <script>
+    const searchInput = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearBtn');
+
+    function toggleClearButton() {
+        clearBtn.style.display = searchInput.value ? 'inline-block' : 'none';
+    }
+
+    searchInput.addEventListener('input', toggleClearButton);
+    window.addEventListener('DOMContentLoaded', toggleClearButton);
+
+    clearBtn.addEventListener('click', function () {
+        searchInput.value = '';
+        toggleClearButton();
+        searchInput.focus();
+    });
     </script>

@@ -153,13 +153,13 @@ a:focus {
   left: 30px;
 }
 
-#searchBar input {
-  width: 220px;
+#searchInput {
+  width: 230px;
   height: 40px;
   border-radius: 20px 0px 0px 20px;
   display: inline-block;
   border: none;
-  padding-left: 10px;
+  padding-left: 15px;
   font-size: 17px;
   font-family: 'Signika Negative', sans-serif;
   vertical-align: middle;
@@ -175,12 +175,39 @@ a:focus {
   /* border-radius: 0 20px 20px 0; */
   background: #dfd696;
   display: inline-block;
-  margin-left: -6px;
+  margin-left: -22px;
   border: none;
   cursor: pointer;
   vertical-align: middle;
 }
 
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
+#clearBtn {
+  position: absolute;
+  right: 50px; /* adjust as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+#clearBttn {
+  position: absolute;
+  right: 50px; /* adjust as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
 
 .login_shopping a {
   color: black;
@@ -919,6 +946,6 @@ a:focus {
   }
 }
 
-.summary-card  p {
+.summary-card p {
   margin-bottom: 7px;
 }
